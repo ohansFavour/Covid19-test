@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>COVID-19 Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="fonts/covid/png/008-doctor.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+  </head>
+  <body style="background: white; height:100%;">
+    
+    <div class="mainCont"><br><br>
+        <div class="inner">
+            <img class="icons" src="fonts/covid/svg/011-doctor-1.svg"><br>
+            <br><div class="btn continue" onclick="home()">Go To The Homepage</div>
+            <div class="adjust">
+                <br><h3 class="head" style="text-align: center; color: black; font-weight: bold">Get Help</h3><br>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" style="color: black;" placeholder="Enter Name"><br>
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="Enter Address"><br>
+                    <label for="phone">Phone Number</label>
+                    <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number"><br>
+                    <label for="complain">Give a brief summary of your complain</label>
+                    <textarea type="text" class="form-control" id="complain"></textarea><br>
+                    <div style="display: flex;">
+                        <div class="btn continue" style="margin-right: 10px;" onclick="submit()">Submit</div>
+                        <div class="btn no" onclick="clearall()">Clear</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#007bff"/></svg></div>
+  <div id="mod" class="ftco-animate" style="display: none; position: fixed; min-height: 100%; width: 100%; background: rgba(0,0,0,.7); top: 0; left: 0; padding: 20px; z-index: 8000;">
+        <div id="modalContent" class="modalContent" style="background: white; max-width: 50%; padding: 20px; border-radius: 5px; margin: auto;">
+            <div class="col-md-12 heading-section">
+            <h2 class="mb-4 text-dark text-center" style="margin-left: 1px;" id='message'></h2>
+            <div id="form" class="align-items-left">
+            
+            </div>
+            </div>
+            <!-- <div style="display: flex; justify-content: center; align-items: center;">
+            
+            </div> -->
+        </div>
+        </div>
+
+  <style>
+      .mainCont{
+          width: 100%;
+          min-height: 100vh;
+          animation: pop 300ms ease-in-out;
+      }
+      .inner{
+        min-height: 78vh;
+        padding: 20px;
+        text-align: center;
+      }
+      .adjust{
+        color: black;
+        text-align: left;
+        margin: 0px 400px;
+      }
+      .icon{
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+      }
+      .icons{
+        width: 100px;
+        height: 100px;
+      }
+      .continue{
+        background: white; 
+        color: #007bff;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+        transition: 200ms ease-in-out;
+      }
+      .continue:hover{
+        background: #007bff; 
+        color: white;
+        transform: scale(1.1);
+      }
+      .no{
+        background: white; 
+        color: #dc3545;
+        border: 1px solid #dc3545;
+        border-radius: 5px;
+        transition: 200ms ease-in-out;
+      }
+      .no:hover{
+        background: #dc3545; 
+        color: white;
+        transform: scale(1.1);
+      }
+      #ftco-loader {
+  position: fixed;
+  width: 96px;
+  height: 96px;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24);
+  box-shadow: 0px 24px 64px rgba(0, 0, 0, 0.24);
+  border-radius: 16px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity .2s ease-out, visibility 0s linear .2s;
+  -o-transition: opacity .2s ease-out, visibility 0s linear .2s;
+  transition: opacity .2s ease-out, visibility 0s linear .2s;
+  z-index: 1000; }
+
+#ftco-loader.fullscreen {
+  padding: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  background-color: #fff;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none; }
+
+#ftco-loader.show {
+  -webkit-transition: opacity .4s ease-out, visibility 0s linear 0s;
+  -o-transition: opacity .4s ease-out, visibility 0s linear 0s;
+  transition: opacity .4s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1; }
+
+#ftco-loader .circular {
+  -webkit-animation: loader-rotate 2s linear infinite;
+  animation: loader-rotate 2s linear infinite;
+  position: absolute;
+  left: calc(50% - 24px);
+  top: calc(50% - 24px);
+  display: block;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  transform: rotate(0deg); }
+
+#ftco-loader .path {
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  -webkit-animation: loader-dash 1.5s ease-in-out infinite;
+  animation: loader-dash 1.5s ease-in-out infinite;
+  stroke-linecap: round; }
+
+@-webkit-keyframes loader-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@keyframes loader-rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+@-webkit-keyframes loader-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px; }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -136px; } }
+
+@keyframes loader-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0; }
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px; }
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -136px; } }
+
+      @keyframes pop{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px){
+        .adjust{
+          margin: 0px;
+        }
+        .inner{
+            padding: 0px 30px;
+            justify-content: center;
+        }
+        .icons{
+            width: 100px;
+            height: 100px;
+        }
+        .head{
+            font-size: 20px;
+        }
+        #modalContent{
+            min-width: 100%;
+            padding: 0;
+        }
+    }
+ </style>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/order.js"></script>
+    
+  </body>
+</html>

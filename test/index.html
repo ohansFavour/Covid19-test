@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Medicity COVID-19 Test</title>
+    <title>COVID-19 Test</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="fonts/covid/png/008-doctor.png" type="image/png">
@@ -9,46 +9,54 @@
     <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
 
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="css/aos.css">
+
+    <link rel="stylesheet" href="css/ionicons.min.css">
+
     <link rel="stylesheet" href="css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="css/jquery.timepicker.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="test/css/style.css">
+
+    
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
-  <body style="background: white; height: 100%">
+  <body style="background: white; height:100%;">
     
     <div class="mainCont">
         <div class="header">
             <h3>COVID-19 Test</h3>
         </div>
         <div class="inner">
-            <img class="icons" src="test/fonts/covid/svg/008-doctor.svg"><br>
+            <img class="icons" src="fonts/covid/svg/002-mask-1.svg"><br>
             <div class="adjust">
-                <h3 class="head" style="color: black;">Welcome!!! Click on any of the options below to continue</h3><br>
-                <div class="listHolder">
-                  <div class="first">
-                    <div class="box">
-                      <img class="icon" src="test/fonts/covid/svg/test.svg" style="flex: 1;">
-                      <div style="flex: 5;"><h5 style="color: black; margin-top: 10px; cursor: pointer;" onclick = "takeTest()">Take Test</h5></div>
-                    </div>
-                    <div class="box">
-                      <img class="icon" src="test/fonts/covid/svg/antibacterial-gel.svg" style="flex: 1;">
-                      <div style="flex: 5;"><h5 style="color: black; margin-top: 10px; cursor: pointer;" onclick = "precautions()">Precaution</h5></div>
-                    </div>
-                  </div>
-                  <div class="second">
-                    <div class="box">
-                      <img class="icon" src="test/fonts/covid/svg/smartphone.svg" style="flex: 1;">
-                      <div style="flex: 5;"><h5 style="color: black; margin-top: 10px; cursor: pointer;" onclick = "statistics()">Statistics</h5></div>
-                    </div>
-                    <div class="box">
-                      <img class="icon" src="test/fonts/covid/svg/010-surgeon.svg" style="flex: 1;">
-                      <div style="flex: 5;"><h5 style="color: black; margin-top: 10px; cursor: pointer;" onclick = "getHelp()">Medicity</h5></div>
-                    </div>
-                  </div>
-                </div>
+                <h3 class="head" style="color: black;">Do you think you have been exposed to COVID-19 and might be having symptoms?</h3><br>
+                <h5 style="color: black;">Take your time to take this test</h5><br>
+                <div class="btn continue" onclick="questions()">Click Here</div>
+                <div class="btn back" onclick="homePage()">Go Back</div>
             </div>
         </div>
     </div>
+    <div id="mod" class="ftco-animate" style="display: none; position: fixed; min-height: 100%; width: 100%; background: rgba(0,0,0,.7); top: 0; left: 0; padding: 20px; z-index: 8000;">
+            <div id="modalContent" class="modalContent" style="background: white; max-width: 50%; padding: 20px; border-radius: 5px; margin: auto;">
+                <div class="col-md-12 heading-section">
+                <h2 class="mb-4 text-dark text-center" style="margin-left: 1px;" id='message'></h2>
+                <div id="form" class="align-items-left">
+                
+                </div>
+                </div>
+                <!-- <div style="display: flex; justify-content: center; align-items: center;">
+                
+                </div> -->
+            </div>
+            </div>
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#007bff"/></svg></div>
 
@@ -59,48 +67,25 @@
           min-height: 100vh;
           animation: pop 300ms ease-in-out;
       }
+      .header{
+        background: #007bff;
+        height: 10vh; 
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
       .inner{
         min-height: 78vh;
-        padding: 20px;
+        padding: 20px 300px;
         text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
       }
-      .listHolder{
-        background: #007bff;
-        padding: 10px;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: row;
-      }
-      .first, .second{
-        flex: 1;
-        display: flex;
-      }
-      .box{
-        display: flex;
-        align-items: center;
-        flex: 1;
-        background: white;
-        border: 1px solid #007bff;
-        padding: 10px;
-        margin: 10px;
-        border-radius: 10px;
-        text-align: left;
-        transition: 300ms ease-in-out;
-      }
-      .box:hover{
-        transform: scale(1.05);
-      }
       .adjust{
         color: black;
-      }
-      .icon{
-        width: 40px;
-        height: 40px;
-        margin-right: 20px;
       }
       .icons{
         width: 100px;
@@ -115,6 +100,19 @@
       }
       .continue:hover{
         background: #007bff; 
+        color: white;
+        transform: scale(1.1);
+      }
+      .back{
+        background: white; 
+        color: #dc3545;
+        margin-left: 10px;
+        border: 1px solid #dc3545;
+        border-radius: 5px;
+        transition: 200ms ease-in-out;
+      }
+      .back:hover{
+        background: #dc3545; 
         color: white;
         transform: scale(1.1);
       }
@@ -139,12 +137,6 @@
         }
         .head{
             font-size: 20px;
-        }
-        .listHolder{
-          flex-direction: column;
-        }
-        .first, .second{
-          flex-direction: column;
         }
       }
  </style>

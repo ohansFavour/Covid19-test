@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>COVID-19 Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="fonts/covid/png/008-doctor.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body style="background: white; height:100%;">
+    
+    <div class="mainCont">
+        <div class="header">
+            <h3>COVID-19 Test</h3>
+        </div>
+        <div class="inner">
+            <img class="icons" src="fonts/covid/svg/caution.svg"><br>
+            <br><div class="btn continue" onclick="home()">Go To The Homepage</div><br><br>
+            <div class="btn back" onclick="medicity()">Back to Medicity</div><br>
+            <div class="adjust">
+                <br><h3 class="head" style="text-align: center; color: black; font-weight: bold">PRECAUTIONS</h3><br>
+                <div class="cover">
+                    <div class="texts">
+                        <h5 style="color: black; text-align: center; font-weight: bold">HOW CORONAVIRUS SPREADS</h5><br>
+                        <div class="spread">
+                          <div class="top">
+                            <div class="box">
+                                <img class="icons" style="flex: 1; margin-right: 10px;" src="fonts/covid/svg/006-cough.svg">
+                                <h5 style="color: black; flex: 3;">Respiratory droplets generated when you cough or sneeze</h5>
+                                <h6 style="color: black;">Coughing, Sneezing</h6>
+                            </div>
+                            <div class="box">
+                                <img class="icons" style="flex: 1; margin-right: 10px;" src="fonts/covid/svg/handshake.svg">
+                                <h5 style="color: black; flex: 3;">Close, prolonged personal contact, such as touching or shaking hands</h5>
+                                <h6 style="color: black;">Contact with an infected person</h6>
+                            </div>
+                          </div>
+                          <div class="bottom">
+                            <div class="box">
+                                <img class="icons" style="flex: 1; margin-right: 10px;" src="fonts/covid/svg/no-touch.svg">
+                                <h5 style="color: black; flex: 3;">Touching any object with the virus on it, then touching your mouth, nose or eyes before washing your hands </h5>
+                                <h6 style="color: black;">Touching any infected object</h6>
+                            </div>
+                            <div class="box">
+                                <img class="icons" style="flex: 1; margin-right: 10px;" src="fonts/covid/svg/add.svg">
+                                <h5 style="color: black; flex: 3;">Social Activities</h5>
+                                <h6 style="color: black;">Engaging in Social Activities</h6>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="texts">
+                        <h5 style="color: black;  font-weight: bold">CORONAVIRUS PRECAUTIONS</h5>
+                        <p>
+                                1. Avoid close contact with people who are sick. Maintain at least three feet distance between yourself and anyone who is coughing or sneezing. <br><br>2. Avoid touching your eyes, nose, and mouth. <br><br>3. Stay home when you are sick. <br><br>4. Cover your cough or sneeze with a tissue, then dispose of the tissue safely. <br><br>5. Clean and disinfect frequently-touched objects and surfaces using a regular household cleaning spray or wipe.<br><br> 6. Wearing a mask is not necessary unless you are taking care of an infected person. The Centers for Disease Control (CDC) does recommend that only infected people wear masks to prevent the spread of the virus. <br><br>7. Wash your hands often with soap and water for at least 20 seconds, especially after going to the bathroom, before eating, and after blowing your nose, coughing, or sneezing. <br><br>8. If soap and water are not readily available, use an alcohol-based hand sanitiser with at least 60% alcohol. Always wash hands with soap and water when your hands are visibly dirty. <br><br>9. If you have a fever, cough and difficulty breathing, seek medical attention immediately. <br><br>10. Keep in mind the travel advisory set out by the Ministry of Health and Welfare.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#007bff"/></svg></div>
+
+
+  <style>
+    p, h5{
+      text-align: left;
+    }
+    h6{
+      display: none;
+      margin: 0px;
+    }
+    .cover{
+      margin: 0px 200px;
+      display: flex;
+      flex-direction: column;
+    }
+    .texts{
+      flex: 1;
+      margin: 10px;
+      padding: 10px;
+    }
+    .spread{
+      display: flex;
+    }
+    .top,.bottom{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .box{
+      flex: 1;
+      display: flex;
+      margin: 10px;
+    }
+      .mainCont{
+          width: 100%;
+          min-height: 100vh;
+          animation: pop 300ms ease-in-out;
+      }
+      .inner{
+        min-height: 78vh;
+        padding: 20px;
+        text-align: center;
+      }
+      .adjust{
+        color: black;
+        text-align: left;
+      }
+      .icon{
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+      }
+      .icons{
+        width: 100px;
+        height: 100px;
+      }
+      .continue{
+        background: white; 
+        color: #007bff;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+        transition: 200ms ease-in-out;
+      }
+      .continue:hover{
+        background: #007bff; 
+        color: white;
+        transform: scale(1.1);
+      }
+
+      .back{
+        background: white; 
+        color: #dc3545;
+        margin-left: 10px;
+        border: 1px solid #dc3545;
+        border-radius: 5px;
+        transition: 200ms ease-in-out;
+      }
+      .back:hover{
+        background: #dc3545; 
+        color: white;
+        transform: scale(1.1);
+      }
+
+      @keyframes pop{
+        0%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px){
+        .spread{
+          flex-direction: column;
+        }
+        .cover{
+          margin: 0px;
+          padding: 0px;
+          display: flex;
+          flex-direction: column;
+        }
+        .top,.bottom{
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+        .box{
+          flex: 1;
+          /* margin: 5px; */
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        }
+        .box img{
+          flex: 1;
+        }
+        .box h5{
+          flex: 3;
+          display: none;
+        }
+        h6{
+          margin-top: 5px;
+          display: block;
+          text-align: center;
+        }
+        .inner{
+            padding: 0px;
+            justify-content: center;
+        }
+        .icons{
+            width: 100px;
+            height: 100px;
+        }
+        .head{
+            font-size: 20px;
+        }
+    }
+ </style>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/jquery.waypoints.min.js"></script>
+  <script src="js/jquery.stellar.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.animateNumber.min.js"></script>
+  <script src="js/bootstrap-datepicker.js"></script>
+  <script src="js/jquery.timepicker.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/order.js"></script>
+    
+  </body>
+</html>
